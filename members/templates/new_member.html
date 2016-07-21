@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="formWarnings">
+  <ul class="list-group">
+
+  </ul>
+</div>
+
+<form action="" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{form.as_p}}
+  <button type="submit" >Submit</button>
+</form>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+function bootstrapify(){
+  $('form p').addClass('form-group');
+
+  $('form input, form textarea, form select').addClass('form-control');
+
+  $('.errorlist li').text(function(index, text){
+    return text.replace('This field', $(this).closest('.errorlist').next('.form-group').find('.form-control').attr('name').toUpperCase());
+  });
+
+  warnings = $('.errorlist');
+  $('.errorlist').remove();
+  warnings.find('li').addClass('alert alert-danger list-group-item')
+  warnings.find('li').each(function(){
+    $('#formWarnings').append($(this));
+  });
+
+}
+
+$(function(){
+	bootstrapify();
+});
+</script>
+{% endblock %}

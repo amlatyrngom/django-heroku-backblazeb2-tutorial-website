@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{%block content%}
+<h1>HerokuB2 Members</h1>
+<ul>
+{% for member in object_list %}
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col-sm-4 col-xs-12">
+        <img src="{{member.picture.url}}" alt="Member's Picture" width="173"/>
+      </div>
+      <div class="col-sm-8 col-xs-12">
+        <h2>{{member.name}}</h2>
+        <p>
+          {{member.short_bio}}
+        </p>
+      </div>
+    </div>
+  </li>
+{% endfor %}
+</ul>
+{% endblock %}

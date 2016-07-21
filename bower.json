@@ -1,0 +1,21 @@
+{
+  "name": "herokub2_club",
+  "authors": [
+    "Amadou Ngom"
+  ],
+  "description": "A tutorial on how to quickly deploy django apps using Heroku and Backblaze B2.",
+  "main": "manage.py",
+  "keywords": [
+    "Heroku",
+    "BackBlaze"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
