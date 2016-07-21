@@ -20,11 +20,20 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "a61%v+ve*-bs=a%42$@heacc!8czq9c@cg&s^6w-pu($+r)$*%"
+# In settings.py
+# Do not change any of these names
+SECRET_KEY = os.environ.get('HB2_SECRET_KEY')
+CURRENT_ENV = os.environ.get('HB2_ENV')
+B2_BUCKET_NAME = os.environ.get('HB2_B2_BUCKET_NAME')
+B2_BUCKET_ID = os.environ.get('HB2_B2_BUCKET_ID')
+B2_ACCOUNT_ID = os.environ.get('HB2_B2_ACCOUNT_ID')
+B2_APPLICATION_KEY = os.environ.get('HB2_B2_APP_KEY')
+DEFAULT_FILE_STORAGE = 'django_b2storage.backblaze_b2.B2Storage' # To be able to use B2
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False  # Should never be True in production
+if CURRENT_ENV=='dev':
+    DEBUG = True
+
 
 # Application definition
 
