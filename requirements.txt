@@ -1,5 +1,10 @@
 dj-database-url==0.4.1
 Django==1.9.7
+django-b2storage==0.1
 gunicorn==19.6.0
+Pillow==3.3.0
 psycopg2==2.6.1
+requests==2.10.0
+six==1.10.0
+tqdm==4.7.6
 whitenoise==3.2
